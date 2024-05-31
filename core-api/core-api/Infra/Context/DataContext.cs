@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using core_api.Features.Products.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace core_api.Infra.Context;
 
@@ -10,4 +11,6 @@ public class DataContext(DbContextOptions options) : DbContext(options)
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(DataContext).Assembly);
         base.OnModelCreating(modelBuilder);
     }
+
+    public DbSet<Product> Products { get; set; }
 }
