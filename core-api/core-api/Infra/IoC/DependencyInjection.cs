@@ -1,4 +1,5 @@
-﻿using core_api.Infra.Context;
+﻿using core_api.Features.Products.IoC;
+using core_api.Infra.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace core_api.Infra.IoC;
@@ -14,9 +15,12 @@ public static class DependencyInjection
         var dbUser = config["DB_USER"];
         var dbPassword = config["DB_PWD"];
 
-        var connectionString = $"server={dbHost};port={dbPort};userid={dbUser};pwd={dbPassword};database={dbDatabase};default command timeout=0;";
+        var connectionString = $"Server={dbHost};Port={dbPort};Database={dbDatabase};User Id={dbUser};Password={dbPassword};";
 
-        services.AddDbContext<DataContext>(options => { options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)); });
+        services.AddDbContext<DataContext>(opt => opt.UseNpgsql(connectionString));
+
+        services.AddProductInfrastructure();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         return services;
     }

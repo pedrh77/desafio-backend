@@ -1,22 +1,15 @@
-version: "3"
-
-networks:
-  db:
-    driver: bridge
-
-volumes:
-  mysql-data:
-
+version: '3.8'
 services:
-  db-mysql:
-    container_name: db-mysql
-    image: mysql:8.0.35-debian
+  postgres:
+    image: postgres:latest
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
+      POSTGRES_PASSWORD: 123
+      POSTGRES_USER: admin
+      POSTGRES_DB: coreapi
     ports:
-      - "3306:3306"
-    networks:
-      - db
-    volumes:
-      - mysql-data:/var/lib/mysql
-    restart: always
+      - "5432:5432"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.13"
+          memory: "140MB"
