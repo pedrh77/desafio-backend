@@ -23,4 +23,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+	<ItemGroup>
+		<Folder Include="Features\Purchases\Contracts\" />
+		<Folder Include="Features\Purchases\IoC\" />
+		<Folder Include="Features\Purchases\Services\" />
+	</ItemGroup>
 </Project>
