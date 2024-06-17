@@ -1,10 +1,10 @@
-﻿namespace core_api.Features.Purchases.Models
+﻿namespace core_api.Features.Purchases.DTO.Request
 {
-    public class Transaction
+    public class TransactionRequest
     {
-        public int Id { get; set; }
         public string client_id { get; set; }
         public string client_name { get; set; }
         public int total_to_pay { get; set; }
+        public CreditCardRequest credit_card { get; set; }
     }
 }

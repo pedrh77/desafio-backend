@@ -16,5 +16,6 @@ public class DataContext(DbContextOptions options) : DbContext(options)
     public DbSet<Product> Products { get; set; }
     public DbSet<CreditCard> CreditCards { get; set; }
     public DbSet<Transaction> Transactions { get; set; }
+    public DbSet<RelationalTransactionCreditCard> RelationalTransactionCreditCards { get; set; }
 
 }

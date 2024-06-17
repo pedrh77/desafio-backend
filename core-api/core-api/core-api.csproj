@@ -7,6 +7,7 @@
     <RootNamespace>core_api</RootNamespace>
   </PropertyGroup>
 
+
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
@@ -22,10 +23,4 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="Features\Purchases\Contracts\" />
-		<Folder Include="Features\Purchases\IoC\" />
-		<Folder Include="Features\Purchases\Services\" />
-	</ItemGroup>
 </Project>

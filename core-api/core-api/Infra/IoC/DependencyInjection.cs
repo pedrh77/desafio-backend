@@ -1,4 +1,6 @@
-﻿using core_api.Features.Products.IoC;
+﻿using core_api.Features.Histories.IoC;
+using core_api.Features.Products.IoC;
+using core_api.Features.Purchases.IoC;
 using core_api.Infra.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,7 +21,7 @@ public static class DependencyInjection
 
         services.AddDbContext<DataContext>(opt => opt.UseNpgsql(connectionString));
 
-        services.AddProductInfrastructure();
+        services.AddProductInfrastructure().AddPurchaseInfrastructure().AddHistoryInfrastructure();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         return services;
